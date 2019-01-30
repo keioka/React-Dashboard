@@ -1,0 +1,47 @@
+:global {
+  .fade-enter {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  .fade-enter-active {
+    transition: all 400ms ease-out;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  .fade-exit {
+    transition: all 200ms ease-out;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+
+  .fadeTranslate-enter {
+    opacity: 0;
+  }
+
+  .fadeTranslate-enter.fadeTranslate-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+  }
+
+  .fadeTranslate-exit {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .fadeTranslate-exit.fadeTranslate-exit-active {
+    opacity: 0;
+    transform: translate(0, 3vh);
+    transition: opacity 1000ms ease-in, transform 1000ms ease-in-out;
+  }
+
+  .fix-container {
+    position: fixed;
+  }
+}

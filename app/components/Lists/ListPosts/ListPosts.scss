@@ -1,0 +1,77 @@
+$border-color: #eeeeee;
+
+.element {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.item {
+  color: black;
+  border-bottom: 1px solid $border-color;
+  padding: 20px 40px;
+}
+
+.inner {
+  width: 100%;
+  padding: 40px 30px;
+}
+
+.list {
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.itemMenu {
+  list-style: none;
+  margin: 5px 0px;
+}
+
+.boxUserInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 120px;
+  padding: 40px 30px;
+
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.boxUserInfoUserName {
+}
+
+.boxUserInfoCityName {
+  color: #aab4bc;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.link {
+  font-family: "Nunito";
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #14e1ce;
+  transition: color 250ms ease-out;
+}
+
+.h5 {
+  font-family: "Nunito";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.52px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}

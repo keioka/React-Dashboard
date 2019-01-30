@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-family: "Open Sans";
+  font-size: 12px;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.rowText {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.button {
+  width: 50%;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}

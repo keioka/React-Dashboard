@@ -1,0 +1,41 @@
+language: node_js
+node_js:
+- stable
+cache:
+  directories:
+  - node_modules
+script:
+- yarn eslint
+- yarn test:cv
+- yarn build
+stages:
+- name: staging
+  if: branch = staging
+- name: production
+  if: branch = master
+deploy:
+  - provider: s3
+    access_key_id:
+      secure: L+qY6adzCa8+B0vnNFQwti/CSUoqYNNDZL/m/SJ/gG+CBfbhUpA0g7JqHESRmDJDVFb5zv+dHQ1T7+cI0cYUntUdInxQ8j7BlTiMmjaDW+0HKoVNdMPW66peR37G3vAjOFr98c3PzF/7pKXxzXsjVtzBii1eYoNcHo1Jn7OOoLmSLlbHIMrHLWzniTl/q3mt4tUist44PUeB/qkzMDo0a5KZFJbeikiRdFBunZJRmUEQHnNvmYyiKjQExYcwCGDEtGaetT+COe4SmXjEcz8bqgl1EkNX1J9HxHl/yJO5cwmTip2tr0xPqQnTOxIqzvCsx9M2kGSLuLdf/Ai23z6Qmp1HypgeaHQwuMaSPQb6Zgdc2Et5UUlO0DW8h9vOZmcHsqH1I6DdMqhzZwQsWtWC+LVGAcsknvpRMygFR23W1URgpy7ftZfpgFz0e+L3ipt+vkYaCkzMTGcuLVBAs6/kkNtelZqXI0rA0Ii0VvEyUeXMZltmIKceiHBbBPYVuFYBvFU03I+NNxu1yrAnPmwPharoa0Hk6o6/DzkmDgAnqdPYWjlZAXua4EFu31IMQoawmruyZJmnptU6Z59lNnMPVrzNpKIoCbb0vl3Yd5W22dCT+irFlGCVMgOQaKkIq+q+cmKZtI7gVWACi4A6frrZiY7vTBHMGTy36NdfAjYLZQA=
+    secret_access_key:
+      secure: Mw3mQOdgEwwfJ2hujEHgY2MS5oN2XpfqJsvAmmAwqxgWczQVS8CQFExgMxYLkoDTbN5DFmLyQgbwFB0phTHuXDZnIVcjvasffDMNKEMvc3ha93TcKmP2WfK+9SA8tyKfg6etoToCEZn/A4ht8picdBQp6y64wZLm5JCDpk45+/L/MQpGpiDzapr7z1qSfsHVavDCKF1h8UUkkh9ll0Z+TpjioqCOE2UsSYINtQcT2P+oRjOE7Q8MT1h7+GFF/u5cdD2suxeoJE7c0y2LAf7CTh9RL8M2aYEyeg5Cbfu7XpdniSclzbdK0WuSV7zvXusIeDslmt0JHdiFT8yCNUybahRQM0J4+IdgQ+95Ukhwn3Vrmuc24icsEzbNw3iohv0xnC4edJRlF4+pYf3QxEjgN+k4wSjFhVUIIrjyqKE58+AbQ0ywIG6cfofEPrsXBu7aCgADy5Mw4RYb3b0ivM/WoDOP87hXDGysRL9I4+lvYpoAYYxpX31KKz6Mc/bt+lQSCF11AUmxn+lpqNt0dJ222dtdQfGywhQLB96vnQdOWbVwf3EryNdaNO0orTtrwJ0PtVRthapd3eW2iVs/H5C3xCpNlL4u1ePU6VN+Jdo9zEFEaMfBKnYfYuxLFnoS4odfV2YDL1nCKCyAZNIBMk72O62YsVmtFxysG6N/PPH1hAE=
+    bucket: frontend-sample-production
+    skip_cleanup: true
+    acl: public_read
+    cache_control: max-age=31536000
+    local_dir: dist
+    on:
+      branch: master
+
+  - provider: s3
+    access_key_id:
+      secure: L+qY6adzCa8+B0vnNFQwti/CSUoqYNNDZL/m/SJ/gG+CBfbhUpA0g7JqHESRmDJDVFb5zv+dHQ1T7+cI0cYUntUdInxQ8j7BlTiMmjaDW+0HKoVNdMPW66peR37G3vAjOFr98c3PzF/7pKXxzXsjVtzBii1eYoNcHo1Jn7OOoLmSLlbHIMrHLWzniTl/q3mt4tUist44PUeB/qkzMDo0a5KZFJbeikiRdFBunZJRmUEQHnNvmYyiKjQExYcwCGDEtGaetT+COe4SmXjEcz8bqgl1EkNX1J9HxHl/yJO5cwmTip2tr0xPqQnTOxIqzvCsx9M2kGSLuLdf/Ai23z6Qmp1HypgeaHQwuMaSPQb6Zgdc2Et5UUlO0DW8h9vOZmcHsqH1I6DdMqhzZwQsWtWC+LVGAcsknvpRMygFR23W1URgpy7ftZfpgFz0e+L3ipt+vkYaCkzMTGcuLVBAs6/kkNtelZqXI0rA0Ii0VvEyUeXMZltmIKceiHBbBPYVuFYBvFU03I+NNxu1yrAnPmwPharoa0Hk6o6/DzkmDgAnqdPYWjlZAXua4EFu31IMQoawmruyZJmnptU6Z59lNnMPVrzNpKIoCbb0vl3Yd5W22dCT+irFlGCVMgOQaKkIq+q+cmKZtI7gVWACi4A6frrZiY7vTBHMGTy36NdfAjYLZQA=
+    secret_access_key:
+      secure: Mw3mQOdgEwwfJ2hujEHgY2MS5oN2XpfqJsvAmmAwqxgWczQVS8CQFExgMxYLkoDTbN5DFmLyQgbwFB0phTHuXDZnIVcjvasffDMNKEMvc3ha93TcKmP2WfK+9SA8tyKfg6etoToCEZn/A4ht8picdBQp6y64wZLm5JCDpk45+/L/MQpGpiDzapr7z1qSfsHVavDCKF1h8UUkkh9ll0Z+TpjioqCOE2UsSYINtQcT2P+oRjOE7Q8MT1h7+GFF/u5cdD2suxeoJE7c0y2LAf7CTh9RL8M2aYEyeg5Cbfu7XpdniSclzbdK0WuSV7zvXusIeDslmt0JHdiFT8yCNUybahRQM0J4+IdgQ+95Ukhwn3Vrmuc24icsEzbNw3iohv0xnC4edJRlF4+pYf3QxEjgN+k4wSjFhVUIIrjyqKE58+AbQ0ywIG6cfofEPrsXBu7aCgADy5Mw4RYb3b0ivM/WoDOP87hXDGysRL9I4+lvYpoAYYxpX31KKz6Mc/bt+lQSCF11AUmxn+lpqNt0dJ222dtdQfGywhQLB96vnQdOWbVwf3EryNdaNO0orTtrwJ0PtVRthapd3eW2iVs/H5C3xCpNlL4u1ePU6VN+Jdo9zEFEaMfBKnYfYuxLFnoS4odfV2YDL1nCKCyAZNIBMk72O62YsVmtFxysG6N/PPH1hAE=
+    bucket: frontend-sample-staging
+    skip_cleanup: true
+    acl: public_read
+    cache_control: max-age=31536000
+    local_dir: dist
+    on:
+      branch: staging

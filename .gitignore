@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+
+#ignore dist
+dist
+
+# Coverage directory used by tools like istanbul
+coverage
+
+node_modules
+
+# sass
+.sass-cache/
+*.css.map
+
+#ngrok
+ngrok
+
+#env
+.env

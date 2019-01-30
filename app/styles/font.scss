@@ -1,0 +1,118 @@
+$font-path: "~@/assets/fonts";
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: semibold;
+  font-weight: 600;
+  src: url("../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+/**********************
+
+  Source Sans Pro
+
+**********************/
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
+    format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf")
+    format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf")
+    format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../assets/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf")
+    format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Nunito/Nunito-Regular.ttf") format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../assets/fonts/Nunito/Nunito-Bold.ttf") format("truetype");
+
+  // url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+  //   url("../app/assets/fonts/OpenSans-Bold.woff") format("woff"),
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}

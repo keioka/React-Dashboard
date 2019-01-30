@@ -1,0 +1,21 @@
+.element {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 700;
+  color: "#404040";
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 2px double rgba(0, 0, 0, 0);
+  border-image: -webkit-linear-gradient(45deg, none, none) 20 stretch;
+  transition: border 1000ms ease-out;
+
+  &:focus {
+    border: 2px double pink;
+    border-radius: 8px;
+    border-image: -webkit-linear-gradient(45deg, orange, yellow) 20 stretch;
+    outline: 0;
+  }
+}

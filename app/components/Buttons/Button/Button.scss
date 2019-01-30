@@ -1,0 +1,24 @@
+.element {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 14px;
+
+  width: 100%;
+  display: flex;
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 60px;
+
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-position 200ms ease-out;
+  background-position: 0 0;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.element:hover {
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+  background-position: center top;
+}

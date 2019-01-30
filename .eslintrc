@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["warn", {"devDependencies": ["**/webpack.**.js", "test/**.js", "**/jest.config.js"], "optionalDependencies": false, "peerDependencies": false}],
+    "import/no-unresolved": [2, { ignore: ["@"] }],
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off",
+    "global-require": "off",
+    "no-undef": "off",
+    "no-unused-vars": "warn",
+    "react/forbid-prop-types": "warn"
+  }
+}
