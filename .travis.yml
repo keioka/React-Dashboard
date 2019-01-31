@@ -4,10 +4,10 @@ node_js:
 cache:
   directories:
   - node_modules
-script:
-# - yarn eslint
-#- yarn test
-# - yarn build
+# script:
+# # - yarn eslint
+# # - yarn test
+# # - yarn build
 stages:
 - name: staging
   if: branch = staging
