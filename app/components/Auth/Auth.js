@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import { hot } from 'react-hot-loader';
 import Button from '@components/Buttons/Button';
 import InputText from '@components/Inputs/InputText';
-import H1 from '@components/texts/H1';
-import Label from '@components/texts/Label';
-import LinkDecorate from '@components/texts/LinkDecorate';
+import H1 from '@components/Texts/H1';
+import Label from '@components/Texts/Label';
+import LinkDecorate from '@components/Texts/LinkDecorate';
 
 import withAuthContainer from '@containers/AuthContainer';
 import classes from './Auth.scss';
