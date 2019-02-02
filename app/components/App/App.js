@@ -9,6 +9,17 @@ const Main = universal(import(/* webpackChunkName: "Main" */ '../Main'));
 const Auth = universal(import(/* webpackChunkName: "Auth" */ '../Auth'));
 
 class App extends React.Component {
+  componentDidCatch(error, info) {
+    console.log(error);
+
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={classes.root}>

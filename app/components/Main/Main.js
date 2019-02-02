@@ -37,6 +37,17 @@ class Main extends React.Component {
     return shallowCompare(nextProps, this.props);
   }
 
+  componentDidCatch(error, info) {
+    console.log(error);
+
+    return (
+      <div>
+        Error:
+        {error}
+      </div>
+    );
+  }
+
   render() {
     const { isOnline } = this.props;
     const currentkey = location.pathname.split('/')[1] || '';
