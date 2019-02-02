@@ -22,7 +22,6 @@ deploy:
     access_key_id: "$AWS_ACCESS_KEY_ID"
     secret_access_key: "$AWS_SECRET_ACCESS_KEY"
     bucket: "$AWS_S3_PRODUCTION_BUCKET"
-    skip_cleanup: true
     acl: public_read
     cache_control: max-age=31536000
     local_dir: dist
@@ -33,7 +32,6 @@ deploy:
     access_key_id: "$AWS_ACCESS_KEY_ID"
     secret_access_key: "$AWS_SECRET_ACCESS_KEY"
     bucket: "$AWS_S3_STAGING_BUCKET"
-    skip_cleanup: true
     acl: public_read
     cache_control: max-age=31536000
     local_dir: dist
