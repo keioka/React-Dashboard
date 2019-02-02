@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { login, signup } from '@redux/actions';
 import actions from '@redux/actions';
 
 const mapStateToProps = state => ({
@@ -25,9 +24,16 @@ const withPostContainer = (Component) => {
   }
 
   PostContainer.propTypes = {
-    allPosts: PropTypes.array,
-    fetchPost: PropTypes.func,
-    isLoading: PropTypes.bool,
+    fetchPost: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    allPosts: PropTypes.arrayOf(PropTypes.shape({
+      color: PropTypes.string,
+      fontSize: PropTypes.number,
+    })),
+  };
+
+  PostContainer.defaultProps = {
+    allPosts: [],
   };
 
   return PostContainer;

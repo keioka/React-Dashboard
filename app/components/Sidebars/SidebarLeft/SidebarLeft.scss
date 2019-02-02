@@ -1,14 +1,15 @@
-.elememnt {
-  display: flex;
-  flex-direction: column;
+@import "~%";
+
+.element {
+  @extend %flex_column;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .inner {
   width: 100%;
-  padding: 40px 30px;
+  box-sizing: border-box;
 }
 
 .list {
@@ -17,22 +18,56 @@
 }
 
 .itemMenu {
+  @extend %flex_row;
   list-style: none;
-  margin: 5px 0px;
+  margin: 3px 10px;
+  border-radius: 58px;
+  padding: 10px 20px;
+  width: 90%;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: background 200ms ease-in-out;
 }
 
+.itemMenu:hover {
+  background: #f5ca43;
+  border-radius: 58px;
+  color: rgb(44, 44, 44);
+}
+
+.itemMenuTitle {
+  line-height: 18px;
+}
+
+.icon {
+  line-height: 18px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+
 .boxUserInfo {
-  display: flex;
-  flex-direction: column;
+  @extend %flex_column;
   width: 100%;
   height: 120px;
   padding: 40px 30px;
 
   margin-bottom: 20px;
   padding-bottom: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  // background: rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.02);
   box-sizing: border-box;
+  animation: opacity 800ms ease-in-out;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .boxUserInfoUserName {
@@ -50,10 +85,15 @@
   font-family: "Nunito";
   color: inherit;
   text-decoration: none;
+  color: #7e7e7e;
+  font-weight: 500;
+  @extend %flex_row;
+  align-items: center;
 }
 
 .link:hover {
-  color: #14e1ce;
+  // color: #fff;
+  color: #7e7e7e;
   transition: color 250ms ease-out;
 }
 
@@ -64,4 +104,5 @@
   letter-spacing: 0.52px;
   text-transform: uppercase;
   opacity: 0.5;
+  padding: 5px 30px;
 }

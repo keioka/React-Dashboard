@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
 import classnames from 'classnames';
 import { hot } from 'react-hot-loader';
 import universal from 'react-universal-component';
 import withClientStatusContainer from '@containers/ClientStatusContainer';
 import SidebarLeft from '@components/Sidebars/SidebarLeft';
 import TopMessageBar from '@components/Sidebars/TopMessageBar';
+import shallowCompare from 'react-addons-shallow-compare';
+import { IoMdNotificationsOutline } from 'react-icons/io';
 
 import classes from './Main.scss';
 
@@ -15,34 +16,47 @@ const MapMain = universal(import(/* webpackChunkName: "MapMain" */ '../Map/MapMa
 const About = universal(import(/* webpackChunkName: "About" */ '../About'));
 const Post = universal(import(/* webpackChunkName: "Auth" */ '../Post'));
 
+const iconOnline = (
+  <span className={classes.headerOnlineStatus}>
+    <span className={classes.headerOnlineStatusText}>
+      online
+    </span>
+  </span>
+);
+
+const iconOffline = (
+  <span className={classes.headerOfflineStatus}>
+    <span className={classes.headerOfflineStatusText}>
+      offline
+    </span>
+  </span>
+);
 @withClientStatusContainer
 class Main extends React.Component {
-  componentWillMount() {
-    const { changeOnlineStatus } = this.props;
-    window.addEventListener('offline', changeOnlineStatus(false), false);
-    window.addEventListener('online', changeOnlineStatus(true), false);
-  }
-
-  componentWillUnmount() {
-    const { changeOnlineStatus } = this.props;
-    window.removeEventListener('offline', changeOnlineStatus);
-    window.removeEventListener('online', changeOnlineStatus);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(nextProps, this.props);
   }
 
   render() {
     const { isOnline } = this.props;
-    const currentkey = location.pathname.split('/')[1] || ''; // 追加
+    const currentkey = location.pathname.split('/')[1] || '';
     return (
       <div className={classes.root}>
-        {!isOnline && (
-          <TopMessageBar>Currently Offline. Please check your network condition.</TopMessageBar>
-        )}
         <SidebarLeft className={classes.sidebarLeft} />
         <div className={classes.main}>
+          <header className={classes.header}>
+            <span className={classes.headerLeft}>
+              {isOnline ? iconOnline : iconOffline}
+            </span>
+            <nav className={classes.headerRight}>
+              <IoMdNotificationsOutline size={24} />
+              <IoMdNotificationsOutline size={24} />
+            </nav>
+          </header>
           <TransitionGroup>
             <CSSTransition
               key={currentkey}
-              classNames="fadeTranslate"
+              classNames="page"
               timeout={500}
               mountOnEnter
               unmountOnExit

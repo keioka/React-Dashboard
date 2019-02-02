@@ -13,7 +13,7 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.root}>
         <H1 className={classes.title}>Post</H1>
         <ListPosts />
         <Button onClick={this.handleClickButton} className={classes.button}>

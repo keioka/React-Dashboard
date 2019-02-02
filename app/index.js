@@ -5,9 +5,9 @@ import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
 import App from '@components/App';
-import configureStore from './redux/store/configureStore';
-import registerServiceworker from './utils/registerServiceworker';
-import sagas from './redux/sagas';
+import configureStore from '@redux/store/configureStore';
+import registerServiceworker from '@utils/registerServiceworker';
+import sagas from '@redux/sagas';
 import './styles/global.scss';
 
 // import './assets/fonts/Open_Sans/OpenSans-Bold.ttf';

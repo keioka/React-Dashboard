@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import classes from './Button.scss';
 
@@ -8,8 +9,18 @@ const Button = ({ className, children, onClick }) => (
   </div>
 );
 
-Button.propTypes = {};
+Button.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.element,
+  ]).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
-Button.defaultProps = {};
+Button.defaultProps = {
+  className: '',
+};
 
 export default Button;

@@ -1,6 +1,13 @@
+@import "../../styles/index";
+
+.root {
+  @extend %page;
+}
+
 .title {
   opacity: 0.8;
 }
+
 .button {
   margin-top: 20px;
   width: 200px;

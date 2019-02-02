@@ -2,7 +2,7 @@
 
 ## (also service worker, analytics tools, and more...)
 
-[![Build Status](https://travis-ci.org/keioka/Frontend-DevOps-React.svg?branch=master)](https://travis-ci.org/keioka/Frontend-DevOps-React)[![Coverage Status](https://coveralls.io/repos/github/keioka/Frontend-DevOps-React/badge.svg?branch=master)](https://coveralls.io/github/keioka/Frontend-DevOps-React?branch=master)
+[![Build Status](https://travis-ci.org/keioka/React-Dashboard.svg?branch=master)](https://travis-ci.org/keioka/React-Dashboard)[![Coverage Status](https://coveralls.io/repos/github/keioka/Frontend-DevOps-React/badge.svg?branch=master)](https://coveralls.io/github/keioka/Frontend-DevOps-React?branch=master)
 
 ## Assets
 
@@ -73,6 +73,8 @@ https://codeclimate.com/
 - Easy to setup
 - Easy to integrate with coverall
 
+* Experimentally added circle CI (Never need to use 2 CI tools at same projects)
+  
 ## Monitoring & Error Report
 
 ### LogRocket

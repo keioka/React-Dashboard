@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import universal from 'react-universal-component';
-import SidebarLeft from '@components/Sidebars/SidebarLeft';
 import { hot } from 'react-hot-loader';
+import SidebarLeft from '@components/Sidebars/SidebarLeft';
 import classes from './App.scss';
 
 const Main = universal(import(/* webpackChunkName: "Main" */ '../Main'));

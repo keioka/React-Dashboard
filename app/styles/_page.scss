@@ -1,0 +1,7 @@
+@import "./size";
+
+%page {
+  padding: $size_padding-page;
+  height: $size_height-screen;
+  box-sizing: border-box;
+}

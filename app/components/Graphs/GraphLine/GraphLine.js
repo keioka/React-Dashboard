@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ResponsiveLine } from '@nivo/line';
+import Card from '@components/Cards/Card';
 
 import classes from './GraphLine.scss';
 
@@ -16,7 +18,9 @@ const theme = {
   },
 };
 const GraphLine = ({ className, children, data }) => (
+  <Card>
   <div className={classnames(className, classes.element)}>
+    
     <ResponsiveLine
       data={data}
       margin={{
@@ -97,6 +101,8 @@ const GraphLine = ({ className, children, data }) => (
       theme={theme}
     />
   </div>
+  </Card>
+
 );
 
 GraphLine.propTypes = {};

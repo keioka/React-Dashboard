@@ -51,10 +51,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, '../app/utilities/'),
-      '@components': path.resolve(__dirname, '../app/components/'),
-      '@containers': path.resolve(__dirname, '../app/containers/'),
-      '@redux': path.resolve(__dirname, '../app/redux/'),
+      'utils': path.resolve(__dirname, '../app/utilities/'),
+      'components': path.resolve(__dirname, '../app/components/'),
+      'containers': path.resolve(__dirname, '../app/containers/'),
+      'redux': path.resolve(__dirname, '../app/redux/'),
     },
     extensions: ['.jsx', '.js', '.json'],
   },
@@ -74,6 +74,17 @@ module.exports = {
         preserveLineBreaks: false,
         removeAttributeQuotes: true,
         removeComments: true,
+      },
+      meta: {
+        'Content-Security-Policy': {
+          'http-equiv': 'Content-Security-Policy',
+          content: 'default-src https:',
+        },
+        // Will generate: <meta http-equiv="Content-Security-Policy" content="default-src https:">
+        // Which equals to the following http header: `Content-Security-Policy: default-src https:`
+        // 'set-cookie': { 'http-equiv': 'set-cookie', content: 'name=value; expires=date; path=url' },
+        // Will generate: <meta http-equiv="set-cookie" content="value; expires=date; path=url">
+        // Which equals to the following http header: `set-cookie: value; expires=date; path=url`
       },
     }),
     new ExtractTextPlugin('[name]-[hash].min.css'),
@@ -125,11 +136,6 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.json?$/,
-        use: 'json-loader',
-      },
-
-      {
         test: /\.scss$/,
         use: ['css-hot-loader'].concat(
           ExtractTextPlugin.extract({
@@ -177,6 +183,13 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'svg-react-loader',
+        },
       },
     ],
   },

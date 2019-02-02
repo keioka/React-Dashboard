@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { hot } from 'react-hot-loader';
 import Button from '@components/Buttons/Button';

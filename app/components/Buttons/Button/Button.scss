@@ -1,24 +1,24 @@
 .element {
-  font-family: "Open Sans";
-  font-weight: 400;
+  font-family: "Nunito";
+  font-weight: 600;
   font-size: 14px;
-
+  color: #fff;
+  
   width: 100%;
   display: flex;
-  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
-  border-radius: 60px;
-
+  background:#f093fb;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
   justify-content: center;
   align-items: center;
   padding: 14px;
   cursor: pointer;
-  transition: background-position 200ms ease-out;
+  transition: background 200ms ease-out;
   background-position: 0 0;
   text-transform: uppercase;
   box-sizing: border-box;
 }
 
 .element:hover {
-  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
-  background-position: center top;
+  background: #f093fb;
 }

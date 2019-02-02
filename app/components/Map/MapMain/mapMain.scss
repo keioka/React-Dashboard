@@ -1,0 +1,32 @@
+@import "~%";
+
+.root {
+  @extend %page;
+  @extend %flex_row;
+  padding: 0;
+  position: relative;
+}
+
+.map {
+  height: $size_height-screen;
+  width: 100%;
+}
+
+.left {
+  width: 100%;
+}
+
+.right {
+  flex: 1;
+  position: absolute;
+  width: 320px;
+  height: calc(100vh - 30vh);
+  top: 20px;
+  right: 20px;
+  // width: 30%;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  box-shadow: $color_shadow;
+  background: $color_white;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import withPostContainer from '@containers/PostContainer';
@@ -27,8 +28,17 @@ class ListPosts extends React.Component {
     );
   }
 }
-ListPosts.propTypes = {};
+ListPosts.propTypes = {
+  fetchPost: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  allPosts: PropTypes.arrayOf(PropTypes.shape({
+    color: PropTypes.string,
+    fontSize: PropTypes.number,
+  })),
+};
 
-ListPosts.defaultProps = {};
+ListPosts.defaultProps = {
+  allPosts: [],
+};
 
 export default ListPosts;

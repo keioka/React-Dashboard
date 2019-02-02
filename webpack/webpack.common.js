@@ -1,59 +1,3 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
-const GoogleFontsPlugin = require('google-fonts-webpack-plugin');
-const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const swCachePlugin = require('sw-cache-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-
-const PLUGIN_NAME = 'webpack-plugin';
-const weblog = require('webpack-log');
-const log = weblog({ name: PLUGIN_NAME });
-const csp = require('csp-header');
-const cspContent = csp({
-  policies: {
-    'script-src': [
-      csp.SELF,
-      csp.INLINE,
-      csp.EVAL,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com"
-    ],
-    'style-src': [
-      csp.SELF,
-      csp.INLINE,
-      csp.EVAL,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com",
-      "https://fonts.googleapis.com"
-    ],
-    'font-src': [
-      csp.SELF,
-      "https://fonts.gstatic.com",
-    ],
-    'img-src': [
-      "data: blob:",
-      csp.SELF,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com"
-    ]
-  }
-    // 'report-uri': 'https://cspreport.com/send'
-});
-
-  // const merge = require('webpack-merge');
-  // const common = require('./webpack.common.js');
-
-  // module.exports = merge(common, {
-  //   mode: 'production',
-  // });
-
 module.exports = {
   mode: 'development',
   devtool: 'eval',
@@ -84,7 +28,7 @@ module.exports = {
       meta: {
         'Content-Security-Policy': {
           'http-equiv': 'Content-Security-Policy',
-          content: cspContent,
+          content: "script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com; font-src 'self'; img-src data: blob: 'self'",
         }
       },
     }),
@@ -125,11 +69,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, '../app/utils/'),
-      '@components': path.resolve(__dirname, '../app/components/'),
-      '@containers': path.resolve(__dirname, '../app/containers/'),
-      '@redux': path.resolve(__dirname, '../app/redux/'),
-      '%': path.resolve(__dirname, '../app/styles/index.scss'),
+      'utils': path.resolve(__dirname, '../app/utilities/'),
+      'components': path.resolve(__dirname, '../app/components/'),
+      'containers': path.resolve(__dirname, '../app/containers/'),
+      'redux': path.resolve(__dirname, '../app/redux/'),
     },
     extensions: ['.jsx', '.js'],
   },

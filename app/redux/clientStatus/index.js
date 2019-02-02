@@ -44,39 +44,44 @@ export default function reducer(state = intialState, action = {}) {
   }
 }
 
-/** ******************************
+/********************************
   Saga
-******************************* */
+********************************/
 
-function* watchClientStatusLogin() {
-  const channel = eventChannel((emitter) => {
+function clientOnlineStatusChannel() {
+  return eventChannel((emitter) => {
     try {
-      const changeStatus = (status) => {
-        emitter({ type: TypesOnline.CHANGE, status });
-      };
+      const emmiterOffline = () => emitter(false);
+      const emmiterOnline = () => emitter(true);
 
-      window.addEventListener('offline', changeStatus(false), false);
-      window.addEventListener('online', changeStatus(true), false);
+      window.addEventListener('offline', emmiterOffline);
+      window.addEventListener('online', emmiterOnline);
 
-      // Return an unsubscribe method
       return () => {
-        // Perform any cleanup you need here
-        window.removeEventListener('offline', changeStatus);
-        window.removeEventListener('online', changeStatus);
+        window.removeEventListener('offline', emmiterOffline);
+        window.removeEventListener('online', emmiterOnline);
       };
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   });
+}
 
-  while (true) {
-    const { data } = yield take(channel);
+function* clientOnlineStatusSaga() {
+  const channel = yield call(clientOnlineStatusChannel)
+  try {
+    while (true) {
+      const data = yield take(channel);
+      yield put({ type: TypesOnline.CHANGE, payload: { status: data }});
+    }
+  } catch(e) {
+    console.error(e)
   }
 }
 
 function* sagas() {
   console.log('clientStatusSaga is working');
-  yield all([fork(watchClientStatusLogin)]);
+  yield all([fork(clientOnlineStatusSaga)]);
 }
 
 export const clientStatusSaga = sagas;

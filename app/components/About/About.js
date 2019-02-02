@@ -246,9 +246,9 @@ class About extends React.Component {
 
   render() {
     return (
-      <div style={{ height: 500 }}>
-        <H1 className={classes.title}>About</H1>
-        <GraphLine data={data} />
+      <div className={classes.root}>
+        <H1 className={classes.title}>Line Graph</H1>
+        <GraphLine data={data} className={classes.graph} />
         <Button onClick={this.handleClickButton} className={classes.button}>
           Hello
         </Button>

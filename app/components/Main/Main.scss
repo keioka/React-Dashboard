@@ -1,8 +1,34 @@
+@import "~%";
+
 .root {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
+}
+
+.header {
+  width: 100%;
+  height: 10vh;
+  min-height: 68px;
+  padding: 0px 2vw;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: #7e7e7e;
+}
+
+.headerLeft {
+
+}
+
+.headerRight {
+  @extend %flex_row;
+  justify-content: space-between;
+  width: 5%;
 }
 
 .title {
@@ -11,10 +37,50 @@
 
 .main {
   flex: 6;
-  padding: 20px 40px;
   box-sizing: border-box;
+  background:#f3f6f7;
 }
 
 .sidebarLeft {
-  flex: 0 0 240px;
+  will-change: transform;
+  flex: 0 1 240px;
 }
+
+.headerOnlineStatus, .headerOfflineStatus {
+  padding: 4px 15px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.headerOnlineStatus::before, .headerOfflineStatus::before {
+  content: "●";
+  margin-right: 3px;
+}
+
+.headerOnlineStatus {
+  background: #97deb2;
+}
+
+.headerOnlineStatusText {
+  line-height: 25px;
+}
+
+.headerOfflineStatusText {
+  line-height: 25px;
+}
+
+.headerOnlineStatus::before {
+  color: #1bc08d;
+}
+
+.headerOfflineStatus {
+  color: #fff;
+  background: #c9614f;
+}
+
+.headerOfflineStatus::before {
+  color: #914a4a;
+}
+
