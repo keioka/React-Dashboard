@@ -1,14 +1,14 @@
-@import "~%";
+// @import "~%";
 
 .root {
-  @extend %page;
-  @extend %flex_row;
+  // @extend %page;
+  // @extend %flex_row;
   padding: 0;
   position: relative;
 }
 
 .map {
-  height: $size_height-screen;
+  // height: $size_height-screen;
   width: 100%;
 }
 
@@ -27,6 +27,6 @@
   border-radius: 12px;
   box-sizing: border-box;
   padding: 20px 40px;
-  box-shadow: $color_shadow;
-  background: $color_white;
+  // box-shadow: $color_shadow;
+  // background: $color_white;
 }
