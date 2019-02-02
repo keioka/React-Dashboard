@@ -11,9 +11,39 @@ const Critters = require('critters-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { SERVICE_WORKER_FILENAME } = require('../config');
+const csp = require('csp-header');
 
 const vendors = ['react', 'react-dom', 'react-router', 'react-router-dom', 'redux', 'redux-saga'];
-
+const cspContent = csp({
+  policies: {
+    'script-src': [
+      csp.SELF,
+      csp.INLINE,
+      csp.EVAL,
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+    ],
+    'style-src': [
+      csp.SELF,
+      csp.INLINE,
+      csp.EVAL,
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+      'https://fonts.googleapis.com',
+    ],
+    'font-src': [
+      csp.SELF,
+      'https://fonts.gstatic.com',
+    ],
+    'img-src': [
+      'data: blob:',
+      csp.SELF,
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+    ],
+  },
+  // 'report-uri': 'https://cspreport.com/send'
+});
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
@@ -79,13 +109,8 @@ module.exports = {
       meta: {
         'Content-Security-Policy': {
           'http-equiv': 'Content-Security-Policy',
-          content: 'default-src https:',
+          content: cspContent,
         },
-        // Will generate: <meta http-equiv="Content-Security-Policy" content="default-src https:">
-        // Which equals to the following http header: `Content-Security-Policy: default-src https:`
-        // 'set-cookie': { 'http-equiv': 'set-cookie', content: 'name=value; expires=date; path=url' },
-        // Will generate: <meta http-equiv="set-cookie" content="value; expires=date; path=url">
-        // Which equals to the following http header: `set-cookie: value; expires=date; path=url`
       },
     }),
     new ExtractTextPlugin('[name]-[hash].min.css'),
