@@ -5,7 +5,7 @@ import withMapContainer from '@containers/MapContainer';
 import H1 from '@components/Texts/H1';
 import mapstyle from './mapstyle.json';
 import IconCar from './icon.svg';
-import classes from './MapMain2.scss';
+import classes from './MapMain.scss';
 
 
 const AnyReactComponent = () => <IconCar width={32} />;
