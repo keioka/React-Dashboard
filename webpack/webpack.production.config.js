@@ -10,12 +10,31 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const Critters = require('critters-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+// console.log(UglifyJSPlugin);
+
+// const uglify = new UglifyJSPlugin({
+//   sourceMap: true,
+//   uglifyOptions: {
+//     compress: {
+//       inline: false,
+//     },
+//   },
+// });
 const { SERVICE_WORKER_FILENAME } = require('../config');
 const csp = require('csp-header');
 
-const vendors = ['react', 'react-dom', 'react-router', 'react-router-dom', 'redux', 'redux-saga'];
+const core = ['react', 'react-dom', 'react-router', 'react-router-dom', 'redux', 'redux-saga'];
 const cspContent = csp({
   policies: {
+    'style-src-elem': [
+      csp.SELF,
+      csp.INLINE,
+      csp.EVAL,
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+    ],
     'script-src': [
       csp.SELF,
       csp.INLINE,
@@ -33,11 +52,12 @@ const cspContent = csp({
     ],
     'font-src': [
       csp.SELF,
+      'data:',
       'https://fonts.gstatic.com',
     ],
     'img-src': [
-      'data: blob:',
       csp.SELF,
+      'data: ',
       'https://maps.googleapis.com',
       'https://maps.gstatic.com',
     ],
@@ -48,19 +68,23 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    core: vendors,
-    main: path.join(__dirname, '../app/index.js'),
+    core,
+    root: path.join(__dirname, '../app/index.js'),
   },
   output: {
     path: path.join(__dirname, '../dist/'),
     filename: '[name]-[hash].min.js',
-    chunkFilename: '[name]-[hash].js',
+    chunkFilename: '[name]-[hash].min.js',
     publicPath: '/',
   },
   optimization: {
-    minimize: true,
     nodeEnv: 'production',
+    minimizer: [
+      // uglify,
+    ],
     splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
       cacheGroups: {
         core: {
           test: 'core',
@@ -68,6 +92,7 @@ module.exports = {
           name: 'core',
           priority: 10,
           enforce: true,
+          reuseExistingChunk: true,
         },
         vendor: {
           test: /node_modules/,
@@ -75,6 +100,7 @@ module.exports = {
           name: 'vendor',
           priority: 10,
           enforce: true,
+          reuseExistingChunk: true,
         },
       },
     },
@@ -90,6 +116,7 @@ module.exports = {
     extensions: ['.jsx', '.js', '.json', '.scss'],
   },
   plugins: [
+    new CleanWebpackPlugin(path.resolve(__dirname, '../dist/'), { root: path.resolve(__dirname, '../') }),
     new Dotenv({
       silent: true, // hide any errors on production
     }),
@@ -113,12 +140,14 @@ module.exports = {
         },
       },
     }),
-    new ExtractTextPlugin('[name]-[hash].min.css'),
+    new ExtractTextPlugin({
+      filename: '[name]-[hash].min.css',
+      allChunks: true,
+    }),
     new StatsPlugin('webpack.stats.json', {
       source: false,
       modules: false,
     }),
-    new CleanWebpackPlugin('dist'),
     new SWPrecacheWebpackPlugin({
       cacheId: 'front-end',
       dontCacheBustUrlsMatching: /\.\w{8}\./,
@@ -143,9 +172,9 @@ module.exports = {
         quality: '95-100',
       },
     }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'defer',
-    }),
+    // new ScriptExtHtmlWebpackPlugin({
+    //   defaultAttribute: 'defer',
+    // }),
     new WebpackPwaManifest({
       name: 'front-end',
       short_name: 'FS',

@@ -93,4 +93,4 @@ Main.propTypes = {};
 
 Main.defaultProps = {};
 
-export default hot(module)(Main);
+export default Main;
