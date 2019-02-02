@@ -7,7 +7,7 @@ cache:
 script:
 # # - yarn eslint
 # # - yarn test
-- yarn build:report
+- yarn test:report
 stages:
 - name: staging
   if: branch = staging
