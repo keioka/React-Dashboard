@@ -14,7 +14,9 @@ stages:
 - name: production
   if: branch = master
 before_deploy:
+  - find ./app
   - yarn build
+  - find ./dist
 deploy:
   - provider: s3
     access_key_id: "$AWS_ACCESS_KEY_ID"
