@@ -87,7 +87,7 @@ module.exports = {
       '@redux': path.resolve(__dirname, '../app/redux/'),
       '%': path.resolve(__dirname, '../app/styles/index.scss'),
     },
-    extensions: ['.jsx', '.js', '.json'],
+    extensions: ['.jsx', '.js', '.json', '.scss'],
   },
   plugins: [
     new Dotenv({
