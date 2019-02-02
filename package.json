@@ -10,7 +10,7 @@
     "start": "webpack-dev-server --config webpack/webpack.config.js",
     "perf": "lighthouse http://localhost:3000 --view",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.production.config.js --progress --profile --colors",
-    "server": "node server.js NODE_ENV=productio",
+    "server": "node server.js NODE_ENV=production",
     "eslint": "eslint .",
     "eslint:fix": "eslint . --fix",
     "start:api": "json-server --watch ./api/db.json"

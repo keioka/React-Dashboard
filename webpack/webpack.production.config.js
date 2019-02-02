@@ -22,7 +22,7 @@ module.exports = {
     main: path.join(__dirname, '../app/index.js'),
   },
   output: {
-    path: path.join(__dirname, 'dist/'),
+    path: path.join(__dirname, '../dist/'),
     filename: '[name]-[hash].min.js',
     chunkFilename: '[name]-[hash].js',
     publicPath: '/',
