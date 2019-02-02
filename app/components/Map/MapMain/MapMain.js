@@ -3,9 +3,10 @@ import classnames from 'classnames';
 import GoogleMapReact from 'google-map-react';
 import withMapContainer from '@containers/MapContainer';
 import H1 from '@components/Texts/H1';
-import classes from './MapMain.scss';
 import mapstyle from './mapstyle.json';
 import IconCar from './icon.svg';
+import classes from './MapMain.scss';
+
 
 const AnyReactComponent = () => <IconCar width={32} />;
 
