@@ -51,10 +51,11 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'utils': path.resolve(__dirname, '../app/utilities/'),
-      'components': path.resolve(__dirname, '../app/components/'),
-      'containers': path.resolve(__dirname, '../app/containers/'),
-      'redux': path.resolve(__dirname, '../app/redux/'),
+      '@utils': path.resolve(__dirname, '../app/utils/'),
+      '@components': path.resolve(__dirname, '../app/components/'),
+      '@containers': path.resolve(__dirname, '../app/containers/'),
+      '@redux': path.resolve(__dirname, '../app/redux/'),
+      '%': path.resolve(__dirname, '../app/styles/index.scss'),
     },
     extensions: ['.jsx', '.js', '.json'],
   },
