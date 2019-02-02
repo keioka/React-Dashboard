@@ -122,6 +122,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: 'body',
+      hash: true,
       filename: 'index.html',
       template: 'app/assets/index.tpl.html',
       minify: {
