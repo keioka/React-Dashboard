@@ -7,7 +7,6 @@ import classes from './MapMain.scss';
 import mapstyle from './mapstyle.json';
 import IconCar from './icon.svg';
 
-
 const AnyReactComponent = () => <IconCar width={32} />;
 
 function options(/* maps */) {

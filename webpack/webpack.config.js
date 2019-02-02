@@ -14,45 +14,47 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const PLUGIN_NAME = 'webpack-plugin';
 const weblog = require('webpack-log');
+
 const log = weblog({ name: PLUGIN_NAME });
 const csp = require('csp-header');
+
 const cspContent = csp({
   policies: {
     'script-src': [
       csp.SELF,
       csp.INLINE,
       csp.EVAL,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com"
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
     ],
     'style-src': [
       csp.SELF,
       csp.INLINE,
       csp.EVAL,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com",
-      "https://fonts.googleapis.com"
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+      'https://fonts.googleapis.com',
     ],
     'font-src': [
       csp.SELF,
-      "https://fonts.gstatic.com",
+      'https://fonts.gstatic.com',
     ],
     'img-src': [
-      "data: blob:",
+      'data: blob:',
       csp.SELF,
-      "https://maps.googleapis.com",
-      "https://maps.gstatic.com"
-    ]
-  }
-    // 'report-uri': 'https://cspreport.com/send'
+      'https://maps.googleapis.com',
+      'https://maps.gstatic.com',
+    ],
+  },
+  // 'report-uri': 'https://cspreport.com/send'
 });
 
-  // const merge = require('webpack-merge');
-  // const common = require('./webpack.common.js');
+// const merge = require('webpack-merge');
+// const common = require('./webpack.common.js');
 
-  // module.exports = merge(common, {
-  //   mode: 'production',
-  // });
+// module.exports = merge(common, {
+//   mode: 'production',
+// });
 
 module.exports = {
   mode: 'development',
@@ -85,7 +87,7 @@ module.exports = {
         'Content-Security-Policy': {
           'http-equiv': 'Content-Security-Policy',
           content: cspContent,
-        }
+        },
       },
     }),
     new ScriptExtHtmlWebpackPlugin({
@@ -194,8 +196,8 @@ module.exports = {
         test: /\.svg$/,
         exclude: /node_modules/,
         use: {
-          loader: 'svg-react-loader'
-        }
+          loader: 'svg-react-loader',
+        },
       },
     ],
   },
