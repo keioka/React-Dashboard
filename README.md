@@ -3,6 +3,7 @@
 ## (also service worker, analytics tools, and more...)
 
 [![Build Status](https://travis-ci.org/keioka/Frontend-DevOps-React.svg?branch=master)](https://travis-ci.org/keioka/Frontend-DevOps-React)[![Coverage Status](https://coveralls.io/repos/github/keioka/Frontend-DevOps-React/badge.svg?branch=master)](https://coveralls.io/github/keioka/Frontend-DevOps-React?branch=master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkeioka%2FReact-Dashboard.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkeioka%2FReact-Dashboard?ref=badge_shield)
 
 ## Assets
 
@@ -106,3 +107,7 @@ It shows all components with actual design and props information.
 - Redux state cache and offline
 - Deploy to S3
 - Server side rendering
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkeioka%2FReact-Dashboard.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkeioka%2FReact-Dashboard?ref=badge_large)
